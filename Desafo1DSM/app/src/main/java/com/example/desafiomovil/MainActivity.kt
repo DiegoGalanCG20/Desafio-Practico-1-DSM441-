@@ -1,20 +1,29 @@
 package com.example.desafiomovil
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.os.Bundle
+import android.widget.LinearLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val btnEjercicio1 = findViewById<LinearLayout>(R.id.btnEjercicio1)
+        val btnEjercicio2 = findViewById<LinearLayout>(R.id.btnEjercicio2)
+        val btnEjercicio3 = findViewById<LinearLayout>(R.id.btnEjercicio3)
+
+        btnEjercicio1.setOnClickListener {
+            startActivity(Intent(this, PromedioActivity::class.java))
+        }
+
+        btnEjercicio2.setOnClickListener {
+            startActivity(Intent(this, SalarioActivity::class.java))
+        }
+
+        btnEjercicio3.setOnClickListener {
+            startActivity(Intent(this, CalculadoraActivity::class.java))
         }
     }
 }
